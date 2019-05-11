@@ -8,7 +8,6 @@ import News from './News';
 import User from './User';
 
 import * as ICONS from '../resources'
-
 import * as COLOR from '../constants/colors'
 
 const { height } = Dimensions.get('window');

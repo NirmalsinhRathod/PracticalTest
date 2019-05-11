@@ -1,6 +1,8 @@
 // Set all the static image here
 export const APP_LOGO = require('./logo.png');
 
+export const LOGOUT = require('./logout.png')
+
 // Select Pic from Camera and Gallery
 export const ADD_PIC = require('./addPic.png')
 

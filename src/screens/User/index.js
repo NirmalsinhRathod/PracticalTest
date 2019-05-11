@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View, Text, Alert } from 'react-native';
+import { View, Text, Alert, TouchableOpacity, Image } from 'react-native';
 import { connect } from 'react-redux';
 import * as ATOMS from '../../components/atoms';
 import { logout } from '../../store/Auth/actions';
@@ -27,9 +27,9 @@ class User extends Component {
     renderUserInfo() {
         let user = this.props.userData
         return (
-            <View style={{ marginBottom: 30 }}>
-                <Text>Name: {user.firstName} {user.lastName}</Text>
-                <Text>Email: {user.email}</Text>
+            <View style={styles.info}>
+                <Text>Hello {user.email}</Text>
+                <Text>This is a dashboard</Text>
             </View>
         )
     }
@@ -37,18 +37,13 @@ class User extends Component {
         let user = this.props.userData
         return (
             <View style={styles.container}>
-                {
-                    user.firstName && this.renderUserInfo()
-                }
+                {user.firstName && this.renderUserInfo()}
 
-                <ATOMS.Button
-                    title={'Logout'}
-                    bgColor={COLOR.TAB_SELECTED}
-                    txtColor={'white'}
+                <ATOMS.Loader isLoading={this.props.loading} />
+
+                <ATOMS.LogoutButton
+                    moreStyle={{ position: 'absolute', top: 50, right: 20 }}
                     onPress={this.fncDoLogout}
-                />
-                <ATOMS.Loader
-                    isLoading={this.props.loading}
                 />
             </View>
         );
