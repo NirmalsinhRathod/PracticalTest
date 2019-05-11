@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View, Text, Alert } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import * as ATOMS from '../../components/atoms';
 import { logout } from '../../store/Auth/actions';

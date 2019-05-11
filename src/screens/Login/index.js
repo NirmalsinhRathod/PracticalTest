@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, } from 'react-native';
 import { connect } from 'react-redux';
 import { login } from '../../store/Auth/actions';
 import * as ATOMS from '../../components/atoms';
@@ -27,9 +27,6 @@ class Login extends React.Component {
     };
 
     componentWillMount() {
-    }
-
-    componentDidMount() {
     }
 
     componentDidUpdate(prevProps, prevState) {

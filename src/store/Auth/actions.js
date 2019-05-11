@@ -23,9 +23,17 @@ export const checkLogin = () => (dispatch) => {
             AsyncStorage.getItem('userData').then((response) => {
                 if (response) {
                     returnToDispatch(dispatch, LOGIN_SUCCESS, JSON.parse(response))
-                    dispatch(NavigationActions.navigate({ routeName: 'MainTabbarScreen' }))
+                    const resetTabbar = StackActions.reset({
+                        index: 0,
+                        actions: [NavigationActions.navigate({ routeName: 'MainTabbarScreen' })],
+                    });
+                    dispatch(resetTabbar)
                 } else {
-                    dispatch(NavigationActions.navigate({ routeName: 'Login' }))
+                    const resetLogin = StackActions.reset({
+                        index: 0,
+                        actions: [NavigationActions.navigate({ routeName: 'Login' })],
+                    });
+                    dispatch(resetLogin)
                 }
             }).done()
         } catch (error) {
@@ -49,7 +57,12 @@ export const login = (request) => (dispatch) => {
         try {
             AsyncStorage.setItem('userData', JSON.stringify(objUser))
             returnToDispatch(dispatch, LOGIN_SUCCESS, objUser)
-            dispatch(NavigationActions.navigate({ routeName: 'MainTabbarScreen' }))
+            const resetTabbar = StackActions.reset({
+                index: 0,
+                actions: [NavigationActions.navigate({ routeName: 'MainTabbarScreen' })],
+            });
+            dispatch(resetTabbar)
+
         } catch (error) {
             alert(error)
             returnToDispatch(dispatch, LOGIN_FAILURE, error)
@@ -68,7 +81,6 @@ export const signup = ({ request }) => (dispatch) => {
 
 }
 export const logout = () => (dispatch) => {
-
 
     Alert.alert(
         '',
