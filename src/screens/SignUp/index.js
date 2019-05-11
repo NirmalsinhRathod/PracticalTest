@@ -43,19 +43,22 @@ class SignUp extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.userData !== this.props.userData) {
             if (this.props.loading === false && this.props.isSuccess) {
-                this.clearState()
-                Alert.alert(
-                    '',
-                    ALERT.SIGNUP_SUCCESS,
-                    [
-                        {
-                            text: 'OK', onPress: () => {
-                                this.props.navigation.goBack()
-                            }
-                        },
-                    ],
-                    { cancelable: false },
-                );
+
+                setTimeout(() => {
+                    this.clearState()
+                    Alert.alert(
+                        '',
+                        ALERT.SIGNUP_SUCCESS,
+                        [
+                            {
+                                text: 'OK', onPress: () => {
+                                    this.props.navigation.goBack()
+                                }
+                            },
+                        ],
+                        { cancelable: false },
+                    );
+                }, 500);
 
             }
         }
@@ -67,18 +70,21 @@ class SignUp extends React.Component {
             password: '',
             confirmPassword: '',
             firstName: '',
-            lastName: ''
+            lastName: '',
+            picPath: '',
         })
     }
 
     fncIsValidate() {
         let isValidate = false
         let messageText = ''
-        if (this.state.firstName === '') {
+        if (VALIDATE.isBlank(this.state.picPath)) {
+            messageText = MSG.ER_SELECTED_IMAGE
+        } else if (VALIDATE.isBlank(this.state.firstName)) {
             messageText = MSG.ER_ENTER_FIRST_NAME
-        } else if (this.state.lastName === '') {
+        } else if (VALIDATE.isBlank(this.state.lastName)) {
             messageText = MSG.ER_ENTER_LAST_NAME
-        } else if (this.state.email === '') {
+        } else if (VALIDATE.isBlank(this.state.email)) {
             messageText = MSG.ER_ENTER_EMAIL
         } else if (!VALIDATE.isValidEmail(this.state.email)) {
             messageText = MSG.ER_VALID_EMAIL

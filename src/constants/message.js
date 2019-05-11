@@ -9,6 +9,7 @@ export const PH_LAST_NAME = 'Enter your lastname';
 
 export const ER_VALID_EMAIL = 'Enter your valid email address';
 export const ER_ENTER_EMAIL = 'Please enter your email address';
+export const ER_SELECTED_IMAGE = 'Please select your picture'
 export const ER_ENTER_PASS = 'Please enter your password';
 export const ER_ENTER_CONFIRM = 'Please enter your confirm password';
 export const ER_PASS_MIN_LENGHT = `Password must have atleast ${CONSTANT.MIN_PASS_LENGHT} characters`
