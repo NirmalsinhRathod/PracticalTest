@@ -74,7 +74,7 @@ class SignUp extends React.Component {
             picPath: '',
         })
     }
-
+    // Check validation
     fncIsValidate() {
         let isValidate = false
         let messageText = ''
