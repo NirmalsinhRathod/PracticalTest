@@ -29,6 +29,7 @@ class User extends Component {
         return (
             <View style={{ marginBottom: 30 }}>
                 <Text>Name: {user.firstName} {user.lastName}</Text>
+                <Text>Email: {user.email}</Text>
             </View>
         )
     }
