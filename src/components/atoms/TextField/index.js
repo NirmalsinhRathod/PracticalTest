@@ -10,7 +10,7 @@ class TextField extends React.Component {
         return (
             <View style={[style, styles.extraPadding]}>
                 {
-                    value !== '' && <Text style={{ color: 'gray', position: 'absolute', marginTop: 2, fontSize: 10, paddingLeft: 10 }}>{placeholder}</Text>
+                    value !== '' && <Text style={styles.placeHolder}>{placeholder}</Text>
                 }
                 <TextInput
                     maxLength={length}
